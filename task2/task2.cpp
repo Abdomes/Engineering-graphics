@@ -148,7 +148,7 @@ int main(int argc, char** argv)
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA); //Настройка опций GLUT(двойная буферизация и буфер цвета)
     glutInitWindowSize(1024, 768);    // Эти функции задают 
     glutInitWindowPosition(100, 100); // задают параметры окна
-    glutCreateWindow("Tutorial 06");  // создают его. Так же мы задаем ему заголовок
+    glutCreateWindow("Tutorial 07");  // создают его. Так же мы задаем ему заголовок
 
     InitializeGlutCallbacks();
 
