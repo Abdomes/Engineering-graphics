@@ -28,7 +28,7 @@ out vec4 Color;                                                                 
 void main()                                                                         \n\
 {                                                                                   \n\
     gl_Position = gWVP * vec4(Position, 1.0);                                       \n\
-    Color = vec4(clamp(Position, 0.0, 1.0), 1.0);                                   \n\
+    Color = vec4(clamp(Position, 0.0, 0.5), 1.0);                                   \n\
 }";
 
 static const char* pFS = "                                                          \n\
@@ -43,18 +43,20 @@ void main()                                                                     
     FragColor = Color;                                                              \n\
 }";
 
+static float Scale = 0.0f;
+static float Scale2 = 0.0f;
 
 static void RenderSceneCB() //Функция рендера
 {
     glClear(GL_COLOR_BUFFER_BIT); //Очистка буфера кадра
 
-    static float Scale = 0.0f;
-
     Scale += 0.1f;
+    Scale2 += 0.001f;
 
     Pipeline p;
     p.Rotate(0.0f, Scale, 0.0f);
     p.WorldPos(0.0f, 0.0f, 3.0f);
+    p.Scale(fabs(sinf(Scale2)), fabs(sinf(Scale2)), fabs(sinf(Scale2)));
     Vector3f CameraPos(0.0f, 0.0f, -3.0f);
     Vector3f CameraTarget(0.0f, 0.0f, 2.0f);
     Vector3f CameraUp(0.0f, 1.0f, 0.0f);
