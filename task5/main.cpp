@@ -54,7 +54,7 @@ static void RenderSceneCB() //Функция рендера
     Scale2 += 0.001f;
 
     Pipeline p;
-    p.Rotate(0.0f, Scale, 0.0f);
+    p.Rotate(Scale, 0.0f, 0.0f);
     p.WorldPos(0.0f, 0.0f, 3.0f);
     p.Scale(fabs(sinf(Scale2)), fabs(sinf(Scale2)), fabs(sinf(Scale2)));
     Vector3f CameraPos(0.0f, 0.0f, -3.0f);
